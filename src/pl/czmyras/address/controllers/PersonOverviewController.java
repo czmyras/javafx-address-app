@@ -1,5 +1,6 @@
 package pl.czmyras.address.controllers;
 
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -33,6 +34,12 @@ public class PersonOverviewController {
     private Label cityLabel;
     @FXML
     private Label birthdayLabel;
+    @FXML
+    private Button highlightButton;
+   @FXML
+    private Button clearHighlightButton;
+
+    final ObservableList<Integer> highlightRows = FXCollections.observableArrayList();
 
     // Reference to the main application.
     private MainApp mainApp;
@@ -54,7 +61,6 @@ public class PersonOverviewController {
         firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
         lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
 
-        final ObservableList<Integer> highlightRows = FXCollections.observableArrayList();
         highlightRows.add(1);
 
         personTable.setRowFactory(new Callback<TableView<Person>, TableRow<Person>>() {
@@ -102,6 +108,10 @@ public class PersonOverviewController {
         // Listen for selection changes and show the person details when changed.
         personTable.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> showPersonDetails(newValue));
+
+        highlightButton.disableProperty().bind(Bindings.isEmpty(personTable.getSelectionModel().getSelectedIndices()));
+        clearHighlightButton.disableProperty().bind(Bindings.isEmpty(highlightRows));
+
     }
 
     /**
@@ -189,6 +199,17 @@ public class PersonOverviewController {
             alert.showAndWait();
         }
     }
+
+    @FXML
+    private void handleHightlightSelection() {
+        highlightRows.addAll(personTable.getSelectionModel().getSelectedIndices());
+    }
+
+    @FXML
+    private void handleClearHightlightSelection() {
+        highlightRows.clear();
+    }
+
 }
 
 
