@@ -1,13 +1,16 @@
 package pl.czmyras.address.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
+import javafx.util.Callback;
 import pl.czmyras.address.DateUtil;
 import pl.czmyras.address.MainApp;
 import pl.czmyras.address.model.Person;
+
+import java.util.Collections;
 
 public class PersonOverviewController {
 
@@ -50,6 +53,48 @@ public class PersonOverviewController {
         // Initialize the person table with the two columns.
         firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
         lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
+
+        final ObservableList<Integer> highlightRows = FXCollections.observableArrayList();
+        highlightRows.add(1);
+
+        personTable.setRowFactory(new Callback<TableView<Person>, TableRow<Person>>() {
+            @Override
+            public TableRow<Person> call(TableView<Person> param) {
+
+                final TableRow<Person> row = new TableRow<Person>() {
+                    @Override
+                    protected void updateItem(Person person, boolean empty) {
+                        super.updateItem(person, empty);
+
+//                        if (person !=null && person.getFirstName().contains("a")) {
+//                            getStyleClass().add("highlightedRow");
+//                        }
+
+                        if (highlightRows.contains(getIndex())) {
+                            if (!getStyleClass().contains("highlightedRow")) {
+                                getStyleClass().add("highlightedRow");
+                            }
+                        } else {
+                            getStyleClass().removeAll(Collections.singleton("highlightedRow"));
+                        }
+                    }
+                };
+                highlightRows.addListener(new ListChangeListener<Integer>() {
+                    @Override
+                    public void onChanged(Change<? extends Integer> change) {
+                        if (highlightRows.contains(row.getIndex())) {
+                            if (!row.getStyleClass().contains("highlightedRow")) {
+                                row.getStyleClass().add("highlightedRow");
+                            }
+                        } else {
+                           row.getStyleClass().removeAll(Collections.singleton("highlightedRow"));
+                        }
+                    }
+                });
+                return row;
+            }
+        });
+
 
         // Clear person details.
         showPersonDetails(null);
