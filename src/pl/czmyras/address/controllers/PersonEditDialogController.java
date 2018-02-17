@@ -1,11 +1,11 @@
-package sample.views;
+package pl.czmyras.address.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import sample.DateUtil;
-import sample.model.Person;
+import pl.czmyras.address.DateUtil;
+import pl.czmyras.address.model.Person;
 
 
 public class PersonEditDialogController {

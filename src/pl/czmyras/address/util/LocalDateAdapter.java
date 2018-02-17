@@ -1,4 +1,4 @@
-package sample.util;
+package pl.czmyras.address.util;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 import java.time.LocalDate;

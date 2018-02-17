@@ -1,7 +1,7 @@
-package sample.model;
+package pl.czmyras.address.model;
 
 import javafx.beans.property.*;
-import sample.util.LocalDateAdapter;
+import pl.czmyras.address.util.LocalDateAdapter;
 
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDate;

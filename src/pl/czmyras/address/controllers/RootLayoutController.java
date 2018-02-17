@@ -1,9 +1,9 @@
-package sample.views;
+package pl.czmyras.address.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.stage.FileChooser;
-import sample.MainApp;
+import pl.czmyras.address.MainApp;
 
 import java.io.File;
 

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="221.0" prefWidth="391.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.views.PersonEditDialogController">
+<AnchorPane prefHeight="221.0" prefWidth="391.0" styleClass="background" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.czmyras.address.controllers.PersonEditDialogController">
     <children>
         <GridPane layoutX="15.0" layoutY="32.0" prefHeight="372.0" prefWidth="677.0" styleClass="background" AnchorPane.bottomAnchor="51.0" AnchorPane.rightAnchor="13.0">
             <columnConstraints>

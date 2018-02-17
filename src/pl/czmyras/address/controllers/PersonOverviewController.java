@@ -1,13 +1,13 @@
-package sample.views;
+package pl.czmyras.address.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import sample.DateUtil;
-import sample.MainApp;
-import sample.model.Person;
+import pl.czmyras.address.DateUtil;
+import pl.czmyras.address.MainApp;
+import pl.czmyras.address.model.Person;
 
 public class PersonOverviewController {
 

@@ -1,11 +1,9 @@
-package sample;
+package pl.czmyras.address;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
@@ -13,11 +11,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import sample.model.Person;
-import sample.model.PersonListWrapper;
-import sample.views.PersonEditDialogController;
-import sample.views.PersonOverviewController;
-import sample.views.RootLayoutController;
+import pl.czmyras.address.model.Person;
+import pl.czmyras.address.model.PersonListWrapper;
+import pl.czmyras.address.controllers.PersonEditDialogController;
+import pl.czmyras.address.controllers.PersonOverviewController;
+import pl.czmyras.address.controllers.RootLayoutController;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
@@ -53,7 +51,7 @@ public class MainApp extends Application {
         this.primaryStage.setTitle("AddressApp");
 
         // Set the application icon.
-        this.primaryStage.getIcons().add(new Image("file:resources/images/Address_Book.png"));
+        this.primaryStage.getIcons().add(new Image("resources/images/Address_Book.png"));
 
         initRootLayout();
 

@@ -1,4 +1,4 @@
-package sample;
+package pl.czmyras.address;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
