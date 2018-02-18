@@ -109,6 +109,11 @@ public class PersonOverviewController {
         personTable.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> showPersonDetails(newValue));
 
+
+        personTable.getSelectionModel().setSelectionMode(
+                SelectionMode.MULTIPLE
+        );
+
         highlightButton.disableProperty().bind(Bindings.isEmpty(personTable.getSelectionModel().getSelectedIndices()));
         clearHighlightButton.disableProperty().bind(Bindings.isEmpty(highlightRows));
 

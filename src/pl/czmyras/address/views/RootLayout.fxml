@@ -19,14 +19,14 @@
                         <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
                     </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
+                <Menu mnemonicParsing="false" text="Statistict">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Delete" />
+                        <MenuItem mnemonicParsing="false" text="Show" onAction="#handleShowBirthdayStatistics"/>
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="About" />
+                        <MenuItem mnemonicParsing="false" text="About" onAction="#handleAbout"/>
                     </items>
                 </Menu>
             </menus>
